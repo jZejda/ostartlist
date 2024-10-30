@@ -48,6 +48,15 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+    phpmyadmin:
+        image: 'phpmyadmin:latest'
+        ports:
+            - '8084:80'
+        networks:
+            - sail
+        environment:
+            - PMA_ARBITRARY=1
+            - UPLOAD_LIMIT=10M
     mailpit:
         image: 'axllent/mailpit:latest'
         ports:
